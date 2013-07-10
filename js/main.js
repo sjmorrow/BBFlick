@@ -6,6 +6,8 @@ $(function(){
         flickr.getListOfSets('9325532@N07');    
     });
     $('body').on('click','[data-action=getListOfPhotosInSet]',function() {
-        flickr.getListOfPhotosInSet($(this).attr('data-set-id'));    
+        flickr.getListOfPhotosInSet($(this).attr('data-set-id'),function(bbcode) {
+            console.log(bbcode);
+        });    
     });
 });
