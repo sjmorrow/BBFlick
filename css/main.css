@@ -1,0 +1,85 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+html * {
+  font-size: 16px;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+h1 {
+  font-size: 70px;
+  margin: 0;
+}
+h1 * {
+  font-size: 70px;
+}
+header {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1em;
+  background: #999999;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #b3b3b3), color-stop(1, #999999));
+  background: -ms-linear-gradient(bottom, #b3b3b3, #999999);
+  background: -moz-linear-gradient(center bottom, #b3b3b3 0%, #999999 100%);
+  background: -o-linear-gradient(#999999, #b3b3b3);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#b3b3b3', GradientType=0);
+}
+input {
+  height: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+button {
+  background: #999999;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #b3b3b3), color-stop(1, #999999));
+  background: -ms-linear-gradient(bottom, #b3b3b3, #999999);
+  background: -moz-linear-gradient(center bottom, #b3b3b3 0%, #999999 100%);
+  background: -o-linear-gradient(#999999, #b3b3b3);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#b3b3b3', GradientType=0);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #0063dc;
+  color: #0063dc;
+  padding: .5em;
+}
+button:hover {
+  border: 1px solid #ff0084;
+  color: #ff0084;
+  background: #999999;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #999999), color-stop(1, #b3b3b3));
+  background: -ms-linear-gradient(bottom, #999999, #b3b3b3);
+  background: -moz-linear-gradient(center bottom, #999999 0%, #b3b3b3 100%);
+  background: -o-linear-gradient(#b3b3b3, #999999);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b3b3b3', endColorstr='#999999', GradientType=0);
+}
+#username_input {
+  width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+#username_input input {
+  width: 98%;
+  text-align: center;
+}
+#username_input button {
+  width: 50%;
+  margin: 0 auto;
+}
+.pink {
+  color: #ff0084;
+}
+.blue {
+  color: #0063dc;
+}
