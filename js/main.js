@@ -2,22 +2,34 @@ $(function(){
     var api_key = "090c874c23e3c0e5b33c580e98310153";
     var flickr = new Flickr(api_key);
     
-    var setTemplate = '<div data-set-id="{id}" data-action="getListOfPhotosInSet"><p>{title._content}</p></div>';
+    var setTemplate = '<div data-set-id="{id}" data-action="getListOfPhotosInSet" class="set"><p>{title._content}</p><div class="thumbs"></div></div>';
     var $setContainer = $('.set-list');
     $('#username_input').submit(function(event) {
         //TODO: Get userId from username
         flickr.getListOfSets('9325532@N07',function(sets) {
             $setContainer.html('');
             for(var set in sets) {
-                //sets[set].title = sets[set].title._content; //Remove that annoying wrapper object
-                $setContainer.append(nano(setTemplate,sets[set]));
+                (function(set){
+                    flickr.getListOfPhotosInSet(set.id,function(urls) {
+                    var $set = $(nano(setTemplate,set)).appendTo($setContainer);
+                    var i=0;
+                    for(var url in urls) {
+                        if(i==5) {i=0;break;}
+                        $set.find('.thumbs').append('<img src="'+urls[url].thumb+'" />')
+                        i++;
+                    }
+                });
+                })(sets[set]);
+                
+                
+                //$setContainer.append(nano(setTemplate,sets[set]));
             }
         });
         return false;
     });
     $('body').on('click','[data-action=getListOfPhotosInSet]',function() {
-        flickr.getListOfPhotosInSet($(this).attr('data-set-id'),function(bbcode) {
-            console.log(bbcode);
+        flickr.getListOfPhotosInSet($(this).attr('data-set-id'),function(urls) {
+            console.log(flickr.generateBBCodeLinks(urls));
         });    
     });
 });

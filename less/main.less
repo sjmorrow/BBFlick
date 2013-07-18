@@ -64,3 +64,38 @@ button {
 .blue {
     color: @flickrBlue;
 }
+
+.set-list {
+    margin: 2em;
+    .set {
+        display: inline-block;
+        width: 24%;
+        text-align: center;
+        .thumbs {
+            height: 180px;
+            position: relative;
+            margin-top: 2em;
+            img {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                border: 8px black double;
+                background: white;
+                &:nth-child(2) {
+                    .rotation(-10deg);
+                }
+                &:nth-child(3) {
+                    .rotation(10deg);
+                }
+                &:nth-child(4) {
+                    
+                }
+                &:nth-child(5) {
+                    
+                }
+            }
+        }
+    }
+}

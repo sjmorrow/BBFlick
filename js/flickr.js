@@ -16,10 +16,11 @@ Flickr.prototype = {
             for(var i in data.photoset.photo) {
                 urls.push({
                     source: _this.generateSourceUrlFromImage(data.photoset.photo[i],_this.ImageSizes.MEDIUM_800),
-                    page: _this.generatePageUrlFromImage(data.photoset.photo[i],data.photoset.owner)  
+                    page: _this.generatePageUrlFromImage(data.photoset.photo[i],data.photoset.owner),
+                    thumb: _this.generateSourceUrlFromImage(data.photoset.photo[i],_this.ImageSizes.SMALL_240)
                 });  
             }
-            callback(_this.generateBBCodeLinks(urls));
+            callback(urls);
         });
     },
     
@@ -65,4 +66,26 @@ Flickr.prototype = {
         LARGE           : 'b',
         ORIGINAL        : 'o'
     }
+};
+
+/* Let's just pretend this didn't just happen for now...
+
+function FlickrUser(user_id){
+    this.user_id=user_id};
 }
+FlickrUser.prototype = new Flickr();
+$.extend(FlickrUser.prototype, {
+    _sets : {},
+    getSets : function() {
+        if(this._sets.length!=0) return this._sets;
+        else {
+            this.callApi('flickr.photosets.getList',{user_id:user_id}).done(function(data){
+                callback(data.photosets.photoset);
+            });
+        }
+    }  
+});
+
+*/
+
+

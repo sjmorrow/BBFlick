@@ -83,3 +83,39 @@ button:hover {
 .blue {
   color: #0063dc;
 }
+.set-list {
+  margin: 2em;
+}
+.set-list .set {
+  display: inline-block;
+  width: 24%;
+  text-align: center;
+}
+.set-list .set .thumbs {
+  height: 180px;
+  position: relative;
+  margin-top: 2em;
+}
+.set-list .set .thumbs img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border: 8px black double;
+  background: white;
+}
+.set-list .set .thumbs img:nth-child(2) {
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}
+.set-list .set .thumbs img:nth-child(3) {
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
