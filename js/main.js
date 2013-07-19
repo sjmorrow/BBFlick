@@ -20,19 +20,28 @@ $(function(){
                     }
                 });
                 })(sets[set]);
-                
-                
-                //$setContainer.append(nano(setTemplate,sets[set]));
             }
         });
         return false;
     });
     $('body').on('click','[data-action=getListOfPhotosInSet]',function() {
         flickr.getListOfPhotosInSet($(this).attr('data-set-id'),function(urls) {
-            console.log(flickr.generateBBCodeLinks(urls));
+            $('textarea.code-text').html(flickr.generateBBCodeLinks(urls));
+            $('body').addClass('blur');
         });    
     });
+    $('body').on('click',function() {
+       $(this).removeClass('blur'); 
+    });
+    $('.code-window').on('click',function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        return false;
+    });
 });
+
+
+
 
 /* Nano Templates (Tomasz Mazur, Jacek Becela) */
 

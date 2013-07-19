@@ -4,6 +4,20 @@
     A set of useful LESS mixins
     More info at: http://lesselements.com
   ---------------------------------------------------*/
+@font-face {
+  font-family: walkway;
+  src: url('../fonts/Walkway.woff');
+}
+@font-face {
+  font-family: walkway;
+  src: url('../fonts/Walkway_Bold.woff');
+  font-weight: bold;
+}
+@font-face {
+  font-family: walkway;
+  src: url('../fonts/Walkway_Bolder.woff');
+  font-weight: bolder;
+}
 html * {
   font-size: 16px;
 }
@@ -25,12 +39,6 @@ header {
   text-align: center;
   margin: 0;
   margin-bottom: 1em;
-  background: #999999;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #b3b3b3), color-stop(1, #999999));
-  background: -ms-linear-gradient(bottom, #b3b3b3, #999999);
-  background: -moz-linear-gradient(center bottom, #b3b3b3 0%, #999999 100%);
-  background: -o-linear-gradient(#999999, #b3b3b3);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#b3b3b3', GradientType=0);
 }
 input {
   height: 2em;
@@ -41,12 +49,6 @@ input {
   border-radius: 6px;
 }
 button {
-  background: #999999;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #b3b3b3), color-stop(1, #999999));
-  background: -ms-linear-gradient(bottom, #b3b3b3, #999999);
-  background: -moz-linear-gradient(center bottom, #b3b3b3 0%, #999999 100%);
-  background: -o-linear-gradient(#999999, #b3b3b3);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#b3b3b3', GradientType=0);
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -57,12 +59,6 @@ button {
 button:hover {
   border: 1px solid #ff0084;
   color: #ff0084;
-  background: #999999;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #999999), color-stop(1, #b3b3b3));
-  background: -ms-linear-gradient(bottom, #999999, #b3b3b3);
-  background: -moz-linear-gradient(center bottom, #999999 0%, #b3b3b3 100%);
-  background: -o-linear-gradient(#b3b3b3, #999999);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b3b3b3', endColorstr='#999999', GradientType=0);
 }
 #username_input {
   width: 480px;
@@ -90,11 +86,18 @@ button:hover {
   display: inline-block;
   width: 24%;
   text-align: center;
+  cursor: pointer;
+}
+.set-list .set p {
+  font-family: walkway;
+  font-weight: bold;
+  font-size: 20px;
 }
 .set-list .set .thumbs {
   height: 180px;
   position: relative;
-  margin-top: 2em;
+  margin-top: 2.5em;
+  cursor: pointer;
 }
 .set-list .set .thumbs img {
   position: absolute;
@@ -104,18 +107,125 @@ button:hover {
   margin-right: auto;
   border: 8px black double;
   background: white;
+  cursor: pointer;
+}
+.set-list .set .thumbs img:nth-child(1) {
+  -webkit-transform: rotate(10deg) translateX(-20px);
+  -moz-transform: rotate(10deg) translateX(-20px);
+  -o-transform: rotate(10deg) translateX(-20px);
+  -ms-transform: rotate(10deg) translateX(-20px);
+  transform: rotate(10deg) translateX(-20px);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 .set-list .set .thumbs img:nth-child(2) {
-  -webkit-transform: rotate(-10deg);
-  -moz-transform: rotate(-10deg);
-  -o-transform: rotate(-10deg);
-  -ms-transform: rotate(-10deg);
-  transform: rotate(-10deg);
+  -webkit-transform: rotate(-10deg) translateX(42px);
+  -moz-transform: rotate(-10deg) translateX(42px);
+  -o-transform: rotate(-10deg) translateX(42px);
+  -ms-transform: rotate(-10deg) translateX(42px);
+  transform: rotate(-10deg) translateX(42px);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 .set-list .set .thumbs img:nth-child(3) {
-  -webkit-transform: rotate(10deg);
-  -moz-transform: rotate(10deg);
-  -o-transform: rotate(10deg);
-  -ms-transform: rotate(10deg);
-  transform: rotate(10deg);
+  -webkit-transform: translate(20px, 20px);
+  -moz-transform: translate(20px, 20px);
+  -o-transform: translate(20px, 20px);
+  -ms-transform: translate(20px, 20px);
+  transform: translate(20px, 20px);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.set-list .set .thumbs img:nth-child(4) {
+  -webkit-transform: translate(-27px, -13px) rotate(8deg);
+  -moz-transform: translate(-27px, -13px) rotate(8deg);
+  -o-transform: translate(-27px, -13px) rotate(8deg);
+  -ms-transform: translate(-27px, -13px) rotate(8deg);
+  transform: translate(-27px, -13px) rotate(8deg);
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.set-list .set .thumbs:hover img:nth-child(1) {
+  -webkit-transform: rotate(10deg) translate(-80px, 20px);
+  -moz-transform: rotate(10deg) translate(-80px, 20px);
+  -o-transform: rotate(10deg) translate(-80px, 20px);
+  -ms-transform: rotate(10deg) translate(-80px, 20px);
+  transform: rotate(10deg) translate(-80px, 20px);
+}
+.set-list .set .thumbs:hover img:nth-child(2) {
+  -webkit-transform: rotate(-10deg) translateX(72px);
+  -moz-transform: rotate(-10deg) translateX(72px);
+  -o-transform: rotate(-10deg) translateX(72px);
+  -ms-transform: rotate(-10deg) translateX(72px);
+  transform: rotate(-10deg) translateX(72px);
+}
+.set-list .set .thumbs:hover img:nth-child(3) {
+  -webkit-transform: translate(50px, 50px);
+  -moz-transform: translate(50px, 50px);
+  -o-transform: translate(50px, 50px);
+  -ms-transform: translate(50px, 50px);
+  transform: translate(50px, 50px);
+}
+.set-list .set .thumbs:hover img:nth-child(4) {
+  -webkit-transform: translate(-57px, -33px) rotate(8deg);
+  -moz-transform: translate(-57px, -33px) rotate(8deg);
+  -o-transform: translate(-57px, -33px) rotate(8deg);
+  -ms-transform: translate(-57px, -33px) rotate(8deg);
+  transform: translate(-57px, -33px) rotate(8deg);
+}
+body.blur .code-window {
+  height: 50%;
+  width: 50%;
+  left: 25%;
+  top: 25%;
+  border: 2px solid #ff0084;
+}
+.code-window {
+  z-index: 1001;
+  -webkit-filter: blur(0px) !important;
+  -moz-filter: blur(0px) !important;
+  -o-filter: blur(0px) !important;
+  -ms-filter: blur(0px) !important;
+  filter: blur(0px) !important;
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition: all 0.6s ease-out;
+  -o-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: none;
+  background: white;
+  overflow: hidden;
+}
+.code-window * {
+  -webkit-filter: blur(0px) !important;
+  -moz-filter: blur(0px) !important;
+  -o-filter: blur(0px) !important;
+  -ms-filter: blur(0px) !important;
+  filter: blur(0px) !important;
+}
+.code-window h2 {
+  text-align: center;
+}
+.code-window textarea.code-text {
+  -webkit-filter: blur(0px) !important;
+  -moz-filter: blur(0px) !important;
+  -o-filter: blur(0px) !important;
+  -ms-filter: blur(0px) !important;
+  filter: blur(0px) !important;
+  width: 90%;
+  margin-left: 5%;
+  height: 75%;
+  -webkit-appearance: none;
 }

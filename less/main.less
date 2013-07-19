@@ -1,6 +1,21 @@
 //TODO: Hire a graphic designer...
 
 @import 'mixins.less';
+
+@font-face {
+    font-family: walkway;
+    src: url('../fonts/Walkway.woff');
+}
+@font-face {
+    font-family: walkway;
+    src: url('../fonts/Walkway_Bold.woff');
+    font-weight: bold;
+}
+@font-face {
+    font-family: walkway;
+    src: url('../fonts/Walkway_Bolder.woff');
+    font-weight: bolder;
+}
 html * {
     font-size: 16px
 }
@@ -23,7 +38,7 @@ header {
     text-align: center;
     margin: 0;
     margin-bottom: 1em;
-    .gradient(@flickrGray,lighten(@flickrGray,10%),@flickrGray);
+    //.gradient(@flickrGray,lighten(@flickrGray,10%),@flickrGray);
 }
 input {
     height: 2em;
@@ -32,7 +47,7 @@ input {
     .rounded(6px);
 }
 button {
-    .gradient(@flickrGray,lighten(@flickrGray,10%),@flickrGray);
+    //.gradient(@flickrGray,lighten(@flickrGray,10%),@flickrGray);
     .rounded(6px);
     border: 1px solid @flickrBlue;
     color: @flickrBlue;
@@ -40,7 +55,7 @@ button {
     &:hover {
         border: 1px solid @flickrPink;
         color: @flickrPink;
-        .gradient(@flickrGray,@flickrGray,lighten(@flickrGray,10%));
+        //.gradient(@flickrGray,@flickrGray,lighten(@flickrGray,10%));
     }
 }
 
@@ -71,10 +86,17 @@ button {
         display: inline-block;
         width: 24%;
         text-align: center;
+        cursor: pointer;
+        p {
+            font-family: walkway;
+            font-weight: bold;
+            font-size: 20px;
+        }
         .thumbs {
             height: 180px;
             position: relative;
-            margin-top: 2em;
+            margin-top: 2.5em;
+            cursor: pointer;
             img {
                 position: absolute;
                 left: 0;
@@ -83,19 +105,83 @@ button {
                 margin-right: auto;
                 border: 8px black double;
                 background: white;
+                cursor: pointer;
+                &:nth-child(1) {
+                    .transform(rotate(10deg) translateX(-20px));
+                    .transition();
+                }
                 &:nth-child(2) {
-                    .rotation(-10deg);
+                    .transform(rotate(-10deg) translateX(42px));
+                    .transition();
                 }
                 &:nth-child(3) {
-                    .rotation(10deg);
+                    .transform(translate(20px,20px));
+                    .transition();
                 }
                 &:nth-child(4) {
-                    
+                    .transform(translate(-27px, -13px) rotate(8deg));
+                    .transition();
                 }
-                &:nth-child(5) {
-                    
+            }
+            &:hover {
+                img {
+                    &:nth-child(1) {
+                        .transform(rotate(10deg) translate(-80px,20px));
+                    }
+                    &:nth-child(2) {
+                        .transform(rotate(-10deg) translateX(72px));
+                    }
+                    &:nth-child(3) {
+                        .transform(translate(50px,50px));
+                    }
+                    &:nth-child(4) {
+                        .transform(translate(-57px, -33px) rotate(8deg));
+                    }
                 }
             }
         }
+    }
+}
+
+body.blur {
+    //background: desaturate(@flickrBlue,40%);
+    * {
+        //This is WAY to slow right now
+        //.filter(blur(2px) contrast(.8));
+    }
+    .code-window {
+        height: 50%;
+        width: 50%;
+        left: 25%;
+        top: 25%;
+        border: 2px solid @flickrPink;
+    }
+}
+.code-window {
+    z-index: 1001;
+    .filter(blur(0px)) !important;
+    * {
+        .filter(blur(0px)) !important;
+    }
+    .transition(0.6s);
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    //.drop-shadow(7px,7px,14px,.4);
+    border: none;
+    background: white;
+    overflow: hidden;
+    
+    h2 {
+        text-align: center;
+    }
+    textarea.code-text {
+        .filter(blur(0px)) !important;
+        width: 90%;
+        margin-left: 5%;
+        height: 75%;
+        -webkit-appearance: none;
     }
 }

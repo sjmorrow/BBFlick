@@ -2,3 +2,11 @@
 @flickrPink: #ff0084;
 @flickrBlue: #0063dc;
 @flickrGray: #999999;
+
+.filter(...) {
+    -webkit-filter: @arguments;
+    -moz-filter: @arguments;
+    -o-filter: @arguments;
+    -ms-filter: @arguments;
+    filter: @arguments;
+}
