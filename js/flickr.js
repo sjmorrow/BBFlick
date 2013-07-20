@@ -3,6 +3,12 @@ Flickr.prototype = {
     //I dont understand it... But this website told me to add the jsoncallback arg, and it worked - http://blog.michaelhamrah.com/2010/02/using-flickr-and-jquery-to-learn-jsonp/
     api_url : "http://api.flickr.com/services/rest/?jsoncallback=?",
     
+    getUserId : function(query,callback) {
+        this.callApi('flickr.people.findByUsername',{username:query}).done(function(data) {
+            callback(data.user.id);
+        });
+    },
+    
     getListOfSets : function(user_id,callback) {
         this.callApi('flickr.photosets.getList',{user_id:user_id}).done(function(data){
             callback(data.photosets.photoset);

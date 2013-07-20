@@ -1,12 +1,14 @@
 <!doctype html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="stylesheet" href="css/main.css">
         <script type="text/javascript" src="js/libs/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/flickr.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
     </head>
     <body>
+        <span class="blur-wrapper">
         <header>
             <h1><span class="pink">BB</span><span class="blue">Flick</span></h1>
         </header>
@@ -15,9 +17,11 @@
             <button data-action="getListOfSets">View Albums</button>
         </form>
         <div class="set-list"></div>
+        </span>
         <div class="code-window">
             <h2>Copy and Paste</h2>
             <textarea class="code-text">This is a test</textarea>
+            <span class="close">&times;</span>
         </div>
     </body>
 </html>

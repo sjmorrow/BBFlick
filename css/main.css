@@ -61,7 +61,7 @@ button:hover {
   color: #ff0084;
 }
 #username_input {
-  width: 480px;
+  width: 310px;
   margin: 0 auto;
   text-align: center;
 }
@@ -84,9 +84,10 @@ button:hover {
 }
 .set-list .set {
   display: inline-block;
-  width: 24%;
+  width: 400px;
   text-align: center;
   cursor: pointer;
+  margin-bottom: 3em;
 }
 .set-list .set p {
   font-family: walkway;
@@ -181,20 +182,8 @@ button:hover {
   -ms-transform: translate(-57px, -33px) rotate(8deg);
   transform: translate(-57px, -33px) rotate(8deg);
 }
-body.blur .code-window {
-  height: 50%;
-  width: 50%;
-  left: 25%;
-  top: 25%;
-  border: 2px solid #ff0084;
-}
 .code-window {
   z-index: 1001;
-  -webkit-filter: blur(0px) !important;
-  -moz-filter: blur(0px) !important;
-  -o-filter: blur(0px) !important;
-  -ms-filter: blur(0px) !important;
-  filter: blur(0px) !important;
   -webkit-transition: all 0.6s ease-out;
   -moz-transition: all 0.6s ease-out;
   -o-transition: all 0.6s ease-out;
@@ -208,12 +197,12 @@ body.blur .code-window {
   background: white;
   overflow: hidden;
 }
-.code-window * {
-  -webkit-filter: blur(0px) !important;
-  -moz-filter: blur(0px) !important;
-  -o-filter: blur(0px) !important;
-  -ms-filter: blur(0px) !important;
-  filter: blur(0px) !important;
+.code-window.enabled {
+  height: 50%;
+  width: 50%;
+  left: 25%;
+  top: 25%;
+  border: 2px solid #ff0084;
 }
 .code-window h2 {
   text-align: center;
@@ -228,4 +217,37 @@ body.blur .code-window {
   margin-left: 5%;
   height: 75%;
   -webkit-appearance: none;
+}
+.code-window .close {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 30px;
+  color: #0063dc;
+  cursor: pointer;
+}
+span.blur-wrapper {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+span.blur-wrapper.enabled {
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+body,
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
