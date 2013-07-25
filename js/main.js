@@ -12,11 +12,11 @@ $(function(){
                 for(var set in sets) {
                     (function(set){
                         flickr.getListOfPhotosInSet(set.id,function(urls) {
-                        var $set = $(nano(setTemplate,set)).appendTo($setContainer);
+                        var $set = $(nano(setTemplate,set)).appendTo($setContainer).hide().fadeIn(800);
                         var i=0;
                         for(var url in urls) {
                             if(i==5) {i=0;break;}
-                            $set.find('.thumbs').append('<img src="'+urls[url].thumb+'" />')
+                            $set.find('.thumbs').append('<img src="'+urls[url].thumb+'" />');
                             i++;
                         }
                     });
