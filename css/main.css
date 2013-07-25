@@ -81,6 +81,7 @@ button:hover {
 }
 .set-list {
   margin: 2em;
+  text-align: center;
 }
 .set-list .set {
   display: inline-block;
