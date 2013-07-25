@@ -1,5 +1,5 @@
 <?php
-  echo('Deploying...');
-  shell_exec( 'git pull');
-  echo('Deployed...');
+  echo("Deploying...<br/>");
+  echo(exec( 'sudo git pull'));
+  echo("<br />Deployed!");
 ?>
