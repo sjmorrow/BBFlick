@@ -1,9 +1,17 @@
 $(function(){
+    // Animate the things first
+    $('header h1').lettering().children('span').each(function(i,el) {
+        setTimeout(function(){
+            $(el).addClass('animate');
+        }, i*100)
+    });
+    
     var api_key = "090c874c23e3c0e5b33c580e98310153";
     var flickr = new Flickr(api_key);
     
     var setTemplate = '<div data-set-id="{id}" data-action="getListOfPhotosInSet" class="set"><p>{title._content}</p><div class="thumbs"></div></div>';
     var $setContainer = $('.set-list');
+    
     $('#username_input').submit(function(event) {
         //TODO: Get userId from username
         flickr.getUserId($(this).find('input').val(),function(user_id) {
@@ -44,12 +52,21 @@ $(function(){
         return false;
     });
     
-    $('header h1').lettering().children('span').each(function(i,el) {
-        setTimeout(function(){
-            //$(el).animate({opacity:0},100).delay(100).animate({opacity:1},100);
-            $(el).addClass('animate');
-        }, i*100)
+    var ajaxCounter = 0;
+    $.ajaxSetup({
+        beforeSend : function() {
+            ajaxCounter++;
+            $('#username_input button').animate({opacity:0});
+            
+        },
+        complete : function() {
+            ajaxCounter--;
+            if(ajaxCounter==0) {
+                $('#username_input button').animate({opacity:1});
+            }
+        }
     });
+    
 });
 
 
