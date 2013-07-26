@@ -43,6 +43,13 @@ $(function(){
         event.preventDefault();
         return false;
     });
+    
+    $('header h1').lettering().children('span').each(function(i,el) {
+        setTimeout(function(){
+            //$(el).animate({opacity:0},100).delay(100).animate({opacity:1},100);
+            $(el).addClass('animate');
+        }, i*100)
+    });
 });
 
 

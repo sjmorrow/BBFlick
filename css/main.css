@@ -20,6 +20,9 @@
 }
 html * {
   font-size: 16px;
+  font-family: walkway;
+  font-weight: bolder;
+  letter-spacing: 2px;
 }
 body {
   padding: 0;
@@ -39,6 +42,27 @@ header {
   text-align: center;
   margin: 0;
   margin-bottom: 1em;
+}
+header h1 span {
+  display: inline-block;
+  position: relative;
+  bottom: 70px;
+  -webkit-transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -o-transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: #0063dc;
+}
+header h1 span.animate {
+  bottom: 0px;
+}
+header h1 span.char1,
+header h1 span.char2,
+header h1 span.char3,
+header h1 span.char4,
+header h1 span.char5,
+header h1 span.char6 {
+  color: #ff0084;
 }
 input {
   height: 2em;

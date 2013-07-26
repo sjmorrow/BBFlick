@@ -17,7 +17,10 @@
     font-weight: bolder;
 }
 html * {
-    font-size: 16px
+    font-size: 16px;
+    font-family: walkway;
+    font-weight: bolder;
+    letter-spacing: 2px;
 }
 body {
     padding: 0;
@@ -39,6 +42,19 @@ header {
     margin: 0;
     margin-bottom: 1em;
     //.gradient(@flickrGray,lighten(@flickrGray,10%),@flickrGray);
+    h1 span {
+        display: inline-block;
+        position: relative;
+        bottom: 70px;
+        .transition(.2s,cubic-bezier(0.175, 0.885, 0.320, 1.275));
+        &.animate {
+            bottom: 0px;
+        }
+        .blue();
+        &.char1,&.char2,&.char3,&.char4,&.char5,&.char6 {
+            .pink();
+        }
+    }
 }
 input {
     height: 2em;
