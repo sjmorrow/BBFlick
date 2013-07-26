@@ -68,14 +68,17 @@ input {
   height: 2em;
   margin-top: 1em;
   margin-bottom: 1em;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  border: none;
+  border: 1px solid #999999;
+  outline: none;
 }
 button {
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  background: #999999;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #737373), color-stop(1, #bfbfbf));
+  background: -ms-linear-gradient(bottom, #737373, #bfbfbf);
+  background: -moz-linear-gradient(center bottom, #737373 0%, #bfbfbf 100%);
+  background: -o-linear-gradient(#bfbfbf, #737373);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bfbfbf', endColorstr='#737373', GradientType=0);
   border: 1px solid #0063dc;
   color: #0063dc;
   padding: .5em;
@@ -221,6 +224,7 @@ button:hover {
   border: none;
   background: white;
   overflow: hidden;
+  text-align: center;
 }
 .code-window.enabled {
   height: 50%;
@@ -232,6 +236,16 @@ button:hover {
 .code-window h2 {
   text-align: center;
 }
+.code-window .btn-group {
+  margin: 0 auto;
+  text-align: center;
+}
+.code-window .btn-group button.btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  margin-right: 0px;
+}
 .code-window textarea.code-text {
   -webkit-filter: blur(0px) !important;
   -moz-filter: blur(0px) !important;
@@ -239,7 +253,6 @@ button:hover {
   -ms-filter: blur(0px) !important;
   filter: blur(0px) !important;
   width: 90%;
-  margin-left: 5%;
   height: 75%;
   -webkit-appearance: none;
 }

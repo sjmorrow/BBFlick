@@ -60,11 +60,12 @@ input {
     height: 2em;
     margin-top: 1em;
     margin-bottom: 1em;
-    .rounded(6px);
+    border: none;
+    border: 1px solid @flickrGray;
+    outline: none;
 }
 button {
-    //.gradient(@flickrGray,lighten(@flickrGray,10%),@flickrGray);
-    .rounded(6px);
+    .gradient(@flickrGray,darken(@flickrGray,15%),lighten(@flickrGray,15%));
     border: 1px solid @flickrBlue;
     color: @flickrBlue;
     padding: .5em;
@@ -174,6 +175,7 @@ button {
     border: none;
     background: white;
     overflow: hidden;
+    text-align: center;
     &.enabled {
         height: 50%;
         width: 50%;
@@ -184,10 +186,17 @@ button {
     h2 {
         text-align: center;
     }
+    .btn-group {
+        margin: 0 auto;
+        text-align: center;
+        button.btn {
+            .rounded(0);
+            margin-right: 0px;
+        }
+    }
     textarea.code-text {
         .filter(blur(0px)) !important;
         width: 90%;
-        margin-left: 5%;
         height: 75%;
         -webkit-appearance: none;
     }
