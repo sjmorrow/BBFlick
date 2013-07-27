@@ -179,7 +179,6 @@ button {
     position: absolute;
     left: 50%;
     top: 50%;
-    //.drop-shadow(7px,7px,14px,.4);
     border: none;
     background: white;
     overflow: hidden;
@@ -194,12 +193,17 @@ button {
     h2 {
         text-align: center;
     }
-    .btn-group {
-        margin: 0 auto;
+    div.select-wrapper {
+        display: inline-block;
         text-align: center;
-        button.btn {
-            .rounded(0);
-            margin-right: 0px;
+        margin-bottom: 1em;
+        margin-top: 1em;
+        width: 20%;
+        label {
+            display: block;
+        }
+        select {
+            width: 100%;
         }
     }
     textarea.code-text {

@@ -43,11 +43,22 @@
         
         
         <div class="code-window">
-            <h2>Copy and Paste</h2>
-            <div class="btn-group" data-toggle="buttons-radio">
-                <button class="btn">BBCode</button>
-                <button class="btn">HTML</button>
-                <button class="btn">Direct Links</button>
+            <div class="select-wrapper">
+                <label for="linkTypeSelect">Link Type</label>
+                <select id="linkTypeSelect">
+                    <option value="bbcode">BBCode</option>
+                    <option value="html">HTML</option>
+                    <option value="direct">Direct Links</option>
+                </select>
+            </div>
+            <div class="select-wrapper">
+            <label for="imgSizeSelect">Select Size</label>
+                <select id="imgSizeSelect">
+                    <option value="SMALL_320">Small (320px)</option>
+                    <option value="MEDIUM_800">Medium (800px)</option>
+                    <option value="LARGE">Large (1024px)</option>
+                    <option value="ORIGINAL">Original Size</option>
+                </select>
             </div>
             <textarea class="code-text">This is a test</textarea>
             <span class="close">&times;</span>

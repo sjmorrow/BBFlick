@@ -2,9 +2,11 @@ function Flickr(api_key){this.api_key = api_key;};
 Flickr.prototype = {
     //I dont understand it... But this website told me to add the jsoncallback arg, and it worked - http://blog.michaelhamrah.com/2010/02/using-flickr-and-jquery-to-learn-jsonp/
     api_url : "http://api.flickr.com/services/rest/?jsoncallback=?",
+    currentUser : '',
     
     getUserId : function(query,callback) {
         this.callApi('flickr.people.findByUsername',{username:query}).done(function(data) {
+            currentUser = data.user.id;
             callback(data.user.id);
         });
     },
@@ -18,16 +20,20 @@ Flickr.prototype = {
     getListOfPhotosInSet : function(set_id,callback) {
         var _this = this;
         this.callApi('flickr.photosets.getPhotos',{photoset_id:set_id}).done(function(data) {
-            var urls = [];
-            for(var i in data.photoset.photo) {
-                urls.push({
-                    source: _this.generateSourceUrlFromImage(data.photoset.photo[i],_this.ImageSizes.MEDIUM_800),
-                    page: _this.generatePageUrlFromImage(data.photoset.photo[i],data.photoset.owner),
-                    thumb: _this.generateSourceUrlFromImage(data.photoset.photo[i],_this.ImageSizes.SMALL_240)
-                });  
-            }
-            callback(urls);
+            callback(data.photoset.photo);
         });
+    },
+    
+    getUrlsFromPhotos : function(photos,size) {
+        var urls = [];
+        for(var i in photos) {
+            urls.push({
+                source: this.generateSourceUrlFromImage(photos[i],this.ImageSizes[size]),
+                page: this.generatePageUrlFromImage(photos[i],currentUser),
+                thumb: this.generateSourceUrlFromImage(photos[i],this.ImageSizes.SMALL_240)
+            });  
+        }
+        return urls;
     },
     
     generateSourceUrlFromImage : function(photo,size) {
@@ -40,12 +46,31 @@ Flickr.prototype = {
         return 'http://www.flickr.com/photos/'+user_id+'/'+photo.id;
     },
     
-    generateBBCodeLinks : function(urls) {
-        var bbcode = '';
-        for(var url in urls) {
-            bbcode += '[url='+urls[url].page+'][img]'+urls[url].source+'[/img][/url]\n\n';
+    linkGenerators : {
+        bbcode : function(urls) {
+            var bbcode = '';
+            for(var url in urls) {
+                bbcode += '[url='+urls[url].page+'][img]'+urls[url].source+'[/img][/url]\n\n';
+            }
+            return bbcode;
+        },
+        html : function(urls) {
+            var html = '';
+            for(var url in urls) {
+                html += '<a href="'+urls[url].page+'"><img src="'+urls[url].source+'" /></a>\n\n';
+            }
+            return html;
+        },
+        direct : function(urls) {
+            var links = '';
+            for(var url in urls) {
+                links += urls[url].source+'\n\n';
+            }
+            return links;
         }
-        return bbcode;
+    },
+    generateLinks : function(urls,type) {
+        return this.linkGenerators[type](urls);
     },
     
     callApi : function(flickr_method,args,http_method,format) {
@@ -73,25 +98,5 @@ Flickr.prototype = {
         ORIGINAL        : 'o'
     }
 };
-
-/* Let's just pretend this didn't just happen for now...
-
-function FlickrUser(user_id){
-    this.user_id=user_id};
-}
-FlickrUser.prototype = new Flickr();
-$.extend(FlickrUser.prototype, {
-    _sets : {},
-    getSets : function() {
-        if(this._sets.length!=0) return this._sets;
-        else {
-            this.callApi('flickr.photosets.getList',{user_id:user_id}).done(function(data){
-                callback(data.photosets.photoset);
-            });
-        }
-    }  
-});
-
-*/
 
 
