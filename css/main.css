@@ -239,7 +239,7 @@ button:hover {
   width: 50%;
   left: 25%;
   top: 25%;
-  border: 2px solid #ff0084;
+  border: 2px solid #0063dc;
 }
 .code-window h2 {
   text-align: center;
@@ -273,7 +273,7 @@ button:hover {
   top: 0;
   right: 10px;
   font-size: 30px;
-  color: #0063dc;
+  color: #ff0084;
   cursor: pointer;
 }
 span.blur-wrapper {
