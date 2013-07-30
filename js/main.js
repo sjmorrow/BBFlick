@@ -67,7 +67,7 @@ $(function(){
     });
     
     function updateCodeArea(setId) {
-        $('textarea.code-text').html(
+        $('textarea.code-text').val(
             flickr.generateLinks(
                 flickr.getUrlsFromPhotos(photoSets[setId],$('#imgSizeSelect').val()),
                 $('#linkTypeSelect').val())
