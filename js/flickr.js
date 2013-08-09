@@ -6,6 +6,10 @@ Flickr.prototype = {
     
     getUserId : function(query,callback) {
         this.callApi('flickr.people.findByUsername',{username:query}).done(function(data) {
+            if(!data.user) {
+                callback(false);
+                return false;
+            }
             currentUser = data.user.id;
             callback(data.user.id);
         });

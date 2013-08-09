@@ -173,22 +173,24 @@ button {
 
 .code-window {
     z-index: 1001;
-    .transition(0.6s);
-    width: 0;
-    height: 0;
+    .transition(0.4s);
+    width: 50%;
+    height: 50%;
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 25%;
+    top: 25%;
     border: none;
     background: white;
     overflow: hidden;
     text-align: center;
+    opacity: 0;
+    .transform(scale(0.7));
+    border: 2px solid @flickrBlue;
+    display: none;
     &.enabled {
-        height: 50%;
-        width: 50%;
-        left: 25%;
-        top: 25%;
-        border: 2px solid @flickrBlue;
+        opacity: 1;
+        .transform(scale(1));
+        display: block;
     }
     h2 {
         text-align: center;

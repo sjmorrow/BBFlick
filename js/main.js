@@ -17,6 +17,10 @@ $(function(){
     
     $('#username_input').submit(function(event) {
         flickr.getUserId($(this).find('input').val(),function(user_id) {
+            if(!user_id) {
+                alert('Sorry, I did not find that username.');
+                return;
+            }
             flickr.getListOfSets(user_id,function(sets) {
                 $setContainer.html('');
                 photoSets = {};
